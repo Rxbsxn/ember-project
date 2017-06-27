@@ -1,0 +1,6 @@
+{{#each transactions as |transaction|}}
+  {{transaction.amount}}
+  <button {{action "removeTransaction" transaction}}>Delete</button>
+{{else}}
+  <p>No records here</p>
+{{/each}}
