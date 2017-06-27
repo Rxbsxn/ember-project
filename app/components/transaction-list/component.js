@@ -1,11 +1,21 @@
 import Ember from 'ember';
 
-export default Ember.Component.extend({
-  flashMessages: Ember.inject.service(),
+const {
+  Component,
+  inject: {
+    service
+  }
+} = Ember;
+
+
+export default Component.extend({
+  flashMessages: service(),
   actions: {
     removeTransaction(transaction) {
       transaction.destroyRecord()
-      .then(() => { this.get('flashMessages').success('Transaction deleted!') })
+        .then(() => {
+          this.get('flashMessages').success('Transaction deleted!')
+        })
     }
   }
 });

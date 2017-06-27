@@ -4,7 +4,7 @@
 
 {{#each transactions as |transaction|}}
  {{#link-to 'transactions.transaction' transaction.id}}
-  {{format-currency transaction.amount}}
+   {{format-currency transaction.amount}}
  {{/link-to}}
   <button {{action "removeTransaction" transaction}}>Delete</button>
 {{else}}
