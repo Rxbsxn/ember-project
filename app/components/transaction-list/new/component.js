@@ -7,10 +7,9 @@ export default Ember.Component.extend({
 
   actions: {
     newTransaction() {
-      const flashMessages = Ember.get(this, 'flashMessages');
       let amount = this.get('amountValue');
       this.get('store').createRecord('transaction', {amount}).save()
-      .then(() => { flashMessages.success('new transaction created!') })
+      .then(() => { this.get('flashMessages').success('new transaction created!') })
     }
   }
 });
