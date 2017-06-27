@@ -2,11 +2,16 @@
   {{flash-message flash=flash}}
 {{/each}}
 
-{{#each transactions as |transaction|}}
- {{#link-to 'transactions.transaction' transaction.id}}
-   {{format-currency transaction.amount}}
- {{/link-to}}
-  <button {{action "removeTransaction" transaction}}>Delete</button>
-{{else}}
-  <p>No records here</p>
-{{/each}}
+{{#paper-list}}
+  {{#each transactions as |item|}}
+    {{#paper-item class="md-3-line" }}
+      <div class="md-list-item-text">
+        {{#link-to 'transactions.transaction' item.id}}
+          <h3>Amount:{{ format-currency item.amount}}</h3>
+        {{/link-to}}
+        <h4>Date of create: {{item.createdAt}}</h4>
+        {{#paper-button raised=true warn=true onClick=(action "removeTransaction" item) bubbles=false}}Delete{{/paper-button}}
+      </div>
+    {{/paper-item}}
+  {{/each}}
+{{/paper-list}}

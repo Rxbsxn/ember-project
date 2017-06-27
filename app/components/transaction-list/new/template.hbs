@@ -1,5 +1,7 @@
 <h2>New transaction</h2>
 <p>
-  {{input type="number" placeholder="Enter amount" value=amountValue}}
-  <button {{action 'newTransaction'}}>Create</button>
+  <div class="layout layout-sm-column">
+    {{paper-input class="flex-30" label="Amount" value=amountValue onChange=(action (mut amountValue))}}
+  </div>
+  {{#paper-button raised=true primary=true onClick=(action "newTransaction")}}save{{/paper-button}}
 </p>

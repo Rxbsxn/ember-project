@@ -1,6 +1,6 @@
 <h2>Showing model is: {{transaction.id}}</h2>
-<ul>
-  <li>{{input type="number" value=transaction.amount}}</li>
-  <li>{{transaction.createdAt}}</li>
-  <button {{action "saveTransaction"}}>Submit</button>
-</ul>
+<div class="layout layout-sm-column">
+  {{paper-input class="flex-30" label="Amount" value=transaction.amount onChange=(action (mut transaction.amount))}}
+  {{paper-input class="flex" label="createdAt" type="text" value=transaction.createdAt disabled=true onChange=(action (mut foo))}}
+</div>
+{{#paper-button raised=true primary=true onClick=(action "saveTransaction")}}Update{{/paper-button}}

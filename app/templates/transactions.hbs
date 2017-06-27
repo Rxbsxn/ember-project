@@ -1,3 +1,3 @@
-{{transaction-list transactions=model}}
-{{#link-to 'transactions.new'}}Create new transaction{{/link-to}}
+{{#paper-button primary=true raised=true href=(href-to "transactions.new") class="href-to"}}Create new transaction{{/paper-button}}
 {{outlet}}
+{{transaction-list transactions=model}}
