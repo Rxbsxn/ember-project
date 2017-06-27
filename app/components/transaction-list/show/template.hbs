@@ -1,6 +1,6 @@
 Showing model is: {{transaction.id}}
 <ul>
-  <li>{{input value=transaction.amount}}</li>
+  <li>{{input type="number" value=transaction.amount}}</li>
   <li>{{transaction.createdAt}}</li>
   <button {{action "saveTransaction"}}>Submit</button>
 </ul>

@@ -8,8 +8,12 @@ export default Ember.Component.extend({
   actions: {
     newTransaction() {
       let amount = this.get('amountValue');
-      this.get('store').createRecord('transaction', {amount}).save()
-      .then(() => { this.get('flashMessages').success('new transaction created!') })
-    }
+      if(amount.length < 1) {
+        this.get('flashMessages').success('Amount should higher than 1')
+      } else {
+        this.get('store').createRecord('transaction', {amount}).save()
+        .then(() => { this.get('flashMessages').success('new transaction created!') })
+        }
+      }
   }
 });
