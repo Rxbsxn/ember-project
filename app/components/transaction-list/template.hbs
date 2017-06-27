@@ -1,8 +1,8 @@
 {{#each transactions as |transaction|}}
+ {{#link-to 'transactions.transaction' transaction.id}}
   {{transaction.amount}}
+ {{/link-to}}
   <button {{action "removeTransaction" transaction}}>Delete</button>
 {{else}}
   <p>No records here</p>
 {{/each}}
-
-{{transaction-list/new}}
